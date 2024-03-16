@@ -1,5 +1,11 @@
 import Task from './Task';
 
 export default function TasksList() {
-	return <Task />;
+	return (
+		<div>
+			<Task />
+			<Task />
+			<Task />
+		</div>
+	);
 }
