@@ -1,6 +1,5 @@
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons/faMagnifyingGlass';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
+import { CiSearch } from 'react-icons/ci';
 import { ThemeContext } from '../App';
 import CategorySelect from './CategorySelect';
 import ChangeThemeButton from './ChangeThemeButton';
@@ -8,8 +7,8 @@ import ChangeThemeButton from './ChangeThemeButton';
 export default function SearchInput() {
 	const { theme } = useContext(ThemeContext);
 	return (
-		<div className='flex gap-4 mt-[18px] relative'>
-			<div className='grow'>
+		<div className='flex flex-col xs:flex-row gap-4 mt-[18px] '>
+			<div className='grow relative'>
 				<input
 					type='text'
 					placeholder='Search task...'
@@ -19,16 +18,18 @@ export default function SearchInput() {
 							: 'border-[#f7f7f7] text-[#f7f7f7] placeholder:text-gray-500 focus:outline-gray-500'
 					}`}
 				/>
-				<FontAwesomeIcon
-					icon={faMagnifyingGlass}
-					size='lg'
-					className={`absolute left-3 top-[calc(50%-10px)] ${
+				<div
+					className={`absolute left-3 top-[calc(50%-10px)] text-xl ${
 						theme === 'light' ? 'text-indigo-500' : 'text-[#f7f7f7]'
 					} transition-colors duration-300`}
-				/>
+				>
+					<CiSearch />
+				</div>
 			</div>
-			<CategorySelect />
-			<ChangeThemeButton />
+			<div className='flex flex-nowrap gap-[18px] justify-center'>
+				<CategorySelect />
+				<ChangeThemeButton />
+			</div>
 		</div>
 	);
 }

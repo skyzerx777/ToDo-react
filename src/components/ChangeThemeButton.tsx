@@ -1,7 +1,6 @@
-import { faMoon } from '@fortawesome/free-regular-svg-icons/faMoon';
-import { faSun } from '@fortawesome/free-regular-svg-icons/faSun';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
+import { FaRegMoon } from 'react-icons/fa';
+import { FiSun } from 'react-icons/fi';
 import { ThemeContext } from '../App';
 
 export default function ChangeThemeButton() {
@@ -15,8 +14,16 @@ export default function ChangeThemeButton() {
 			onClick={changeTheme}
 			className='w-10 h-10 bg-indigo-500 rounded-[5px] text-white hover:bg-indigo-600 transition-colors duration-300'
 		>
-			{theme === 'light' && <FontAwesomeIcon icon={faMoon} size='xl' />}
-			{theme === 'dark' && <FontAwesomeIcon icon={faSun} size='xl' />}
+			{theme === 'light' && (
+				<div className='text-xl flex justify-center'>
+					<FiSun />
+				</div>
+			)}
+			{theme === 'dark' && (
+				<div className='text-xl flex justify-center'>
+					<FaRegMoon />
+				</div>
+			)}
 		</button>
 	);
 }
