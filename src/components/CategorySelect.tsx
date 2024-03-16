@@ -73,7 +73,7 @@ export default function CategorySelect() {
 			options={options}
 			isSearchable={false}
 			styles={style}
-			className='grow max-w-64'
+			className='grow'
 		/>
 	);
 }

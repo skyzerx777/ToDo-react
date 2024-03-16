@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import './App.css';
+import AddTaskButton from './components/AddTaskButton';
 import Content from './components/Content';
 import SearchInput from './components/SearchInput';
 
@@ -24,7 +25,7 @@ function App() {
 					}; transition: background-color .2s`}
 				</style>
 			</Helmet>
-			<header className='max-w-3xl mx-auto px-1 md:px-10 text-center pt-10'>
+			<header className='max-w-3xl mx-auto px-3 md:px-10 text-center pt-10'>
 				<h1
 					className={`uppercase text-[26px] leading-[39px] font-medium transition-colors duration-300 ${
 						theme === 'light' ? 'text-black' : 'text-white'
@@ -33,6 +34,7 @@ function App() {
 					Todo list
 				</h1>
 				<SearchInput />
+				<AddTaskButton />
 			</header>
 			<Content />
 		</ThemeContext.Provider>
