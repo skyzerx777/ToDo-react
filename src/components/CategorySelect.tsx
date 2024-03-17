@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
-import Select from 'react-select';
+import Select, { GroupBase, StylesConfig } from 'react-select';
+import { CategoryType } from '../types/CategoryType';
 
-const options = [
+const options: CategoryType[] = [
 	{
 		value: 'all',
 		label: 'All',
@@ -19,7 +20,9 @@ export default function CategorySelect() {
 	const [selectedOption, setSelectedOption] = useState(options[0]);
 	const selectRef = useRef(null);
 
-	const style = {
+	const style:
+		| StylesConfig<CategoryType, false, GroupBase<CategoryType>>
+		| undefined = {
 		control: (base: object, { isFocused }) => ({
 			...base,
 			border: 0,
@@ -60,7 +63,7 @@ export default function CategorySelect() {
 		}),
 	};
 
-	const onClickHandler = (event: object) => {
+	const onClickHandler = (event: CategoryType) => {
 		setSelectedOption(event);
 		selectRef.current?.blur();
 	};

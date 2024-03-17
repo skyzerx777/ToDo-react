@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import './App.css';
 import AddTaskButton from './components/AddTaskButton';
 import Content from './components/Content';
+import Modal from './components/Modal';
 import SearchInput from './components/SearchInput';
 
 type ThemeContextType = {
@@ -15,7 +16,13 @@ export const ThemeContext = createContext<ThemeContextType>(
 );
 
 function App() {
-	const [theme, setTheme] = useState('light');
+	const [theme, setTheme] = useState<string>('light');
+	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+	const openModal = () => {
+		setIsModalOpen(true);
+	};
+
 	return (
 		<ThemeContext.Provider value={{ theme, setTheme }}>
 			<Helmet>
@@ -34,7 +41,8 @@ function App() {
 					Todo list
 				</h1>
 				<SearchInput />
-				<AddTaskButton />
+				<AddTaskButton onClick={openModal} />
+				<Modal opened={isModalOpen} closeModal={() => setIsModalOpen(false)} />
 			</header>
 			<Content />
 		</ThemeContext.Provider>
