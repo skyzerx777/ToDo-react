@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import Select, { GroupBase, StylesConfig } from 'react-select';
-import { CategoryType } from '../types/CategoryType';
+import { CategoryType } from '../types/category';
 
 const options: CategoryType[] = [
 	{

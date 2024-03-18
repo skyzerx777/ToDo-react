@@ -1,11 +1,16 @@
+import { useContext } from 'react';
+import { TasksContext } from '../App';
 import Task from './Task';
 
 export default function TasksList() {
+	const { tasks } = useContext(TasksContext);
 	return (
 		<div>
-			<Task>Task 1</Task>
-			<Task>Task 2</Task>
-			<Task>Task 3</Task>
+			{tasks.map(task => (
+				<Task key={task.id} taskIndex={task.id} checked={task.isChecked}>
+					{task.value}
+				</Task>
+			))}
 		</div>
 	);
 }
