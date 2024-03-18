@@ -18,7 +18,7 @@ export default function ApplyButton({ children, inputValue, closeModal }) {
 			onClick={() => {
 				setTasks([
 					...tasks,
-					{ id: tasks.length, value: inputValue, isChecked: false },
+					{ id: crypto.randomUUID(), value: inputValue, isChecked: false },
 				]);
 				closeModal();
 			}}

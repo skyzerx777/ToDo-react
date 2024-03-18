@@ -4,14 +4,16 @@ import { ThemeContext } from '../App';
 import CategorySelect from './CategorySelect';
 import ChangeThemeButton from './ChangeThemeButton';
 
-export default function SearchInput() {
+export default function SearchInput({ onChange }) {
 	const { theme } = useContext(ThemeContext);
+
 	return (
 		<div className='flex flex-col xs:flex-row gap-4 mt-[18px] '>
 			<div className='grow relative'>
 				<input
 					type='text'
 					placeholder='Search task...'
+					onChange={onChange}
 					className={`w-full bg-transparent border rounded-[5px] grow px-10 py-1 leading-7 text-lg outline outline-[3px] outline-offset-0 outline-transparent transition-all duration-300  ${
 						theme === 'light'
 							? 'border-indigo-500 focus:outline-indigo-300 text-indigo-500 placeholder:text-indigo-200'

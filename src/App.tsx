@@ -16,6 +16,7 @@ export const TasksContext = createContext({});
 function App() {
 	const [theme, setTheme] = useState<string>('light');
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+	const [searchValue, setSearchValue] = useState('');
 	const [tasks, setTasks] = useState([]);
 
 	const saveData = () => {
@@ -28,6 +29,10 @@ function App() {
 		if (localStorage.getItem('tasks')) {
 			setTasks(Array.from(JSON.parse(localStorage.getItem('tasks'))));
 		}
+	};
+
+	const onChangeHandler = event => {
+		setSearchValue(event.target.value);
 	};
 
 	useEffect(() => {
@@ -59,14 +64,14 @@ function App() {
 					>
 						Todo list
 					</h1>
-					<SearchInput />
+					<SearchInput onChange={onChangeHandler} />
 					<AddTaskButton onClick={() => setIsModalOpen(true)} />
 					<Modal
 						isModalOpen={isModalOpen}
 						closeModal={() => setIsModalOpen(false)}
 					/>
 				</header>
-				<Content />
+				<Content searchValue={searchValue} />
 			</TasksContext.Provider>
 		</ThemeContext.Provider>
 	);
