@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { ChangeEvent, createContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import './App.css';
 import AddTaskButton from './components/AddTaskButton';
@@ -31,7 +31,7 @@ function App() {
 		}
 	};
 
-	const onChangeHandler = event => {
+	const onChangeHandler = (event: ChangeEvent) => {
 		setSearchValue(event.target.value);
 	};
 
@@ -44,6 +44,7 @@ function App() {
 		return () => {
 			window.removeEventListener('beforeunload', saveData);
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [tasks]);
 
 	return (
