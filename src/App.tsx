@@ -11,7 +11,7 @@ export const ThemeContext = createContext<ThemeContextType>(
 	{} as ThemeContextType
 );
 
-export const TasksContext = createContext({});
+export const TasksContext = createContext([]);
 
 function App() {
 	const [theme, setTheme] = useState<string>('light');
@@ -22,6 +22,8 @@ function App() {
 	const saveData = () => {
 		if (tasks.length !== 0) {
 			localStorage.setItem('tasks', JSON.stringify(tasks));
+		} else {
+			localStorage.removeItem('tasks');
 		}
 	};
 
