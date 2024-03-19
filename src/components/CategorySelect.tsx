@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import Select, { GroupBase, StylesConfig } from 'react-select';
+import { CategoryContext } from '../App';
 import { CategoryType } from '../types/category';
 
 const options: CategoryType[] = [
@@ -19,6 +20,7 @@ const options: CategoryType[] = [
 export default function CategorySelect() {
 	const [selectedOption, setSelectedOption] = useState(options[0]);
 	const selectRef = useRef(null);
+	const { category, setCategory } = useContext(CategoryContext);
 
 	const style:
 		| StylesConfig<CategoryType, false, GroupBase<CategoryType>>
@@ -64,8 +66,9 @@ export default function CategorySelect() {
 		}),
 	};
 
-	const onClickHandler = (event: CategoryType) => {
+	const onChangeHandler = (event: CategoryType) => {
 		setSelectedOption(event);
+		setCategory(event.value);
 		selectRef.current?.blur();
 	};
 
@@ -73,7 +76,7 @@ export default function CategorySelect() {
 		<Select
 			ref={selectRef}
 			defaultValue={selectedOption}
-			onChange={onClickHandler}
+			onChange={onChangeHandler}
 			options={options}
 			isSearchable={false}
 			styles={style}
