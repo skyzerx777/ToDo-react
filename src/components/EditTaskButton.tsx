@@ -20,9 +20,9 @@ export default function EditTaskButton({
 	return (
 		<button
 			onClick={onClickHandler}
-			className={`opacity-50 hover:text-amber-500 hover:opacity-100 transition-[color, opacity] duration-100 ${
+			className={`hover:text-amber-500 hover:opacity-100 transition-[color, opacity] duration-300 ${
 				theme === 'light' ? 'text-[#252525]' : 'text-[#f7f7f7]'
-			}`}
+			} ${isEditing ? 'text-amber-500 opacity-100' : 'opacity-50'}`}
 		>
 			{children}
 		</button>

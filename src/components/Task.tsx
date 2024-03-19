@@ -86,7 +86,7 @@ export default function Task({ children, checked, id }) {
 					)}
 				</div>
 			</div>
-			<div className='flex gap-2'>
+			<div className='flex gap-2 me-1'>
 				<EditTaskButton
 					setIsEditing={setIsEditing}
 					finishEditing={finishEditing} // Передаем функцию finishEditing

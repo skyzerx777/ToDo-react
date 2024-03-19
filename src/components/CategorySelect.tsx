@@ -60,6 +60,7 @@ export default function CategorySelect() {
 			position: 'absolute',
 			width: '100%',
 			backgroundColor: 'rgb(245, 245, 245)',
+			zIndex: '999',
 		}),
 	};
 

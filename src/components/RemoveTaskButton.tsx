@@ -6,7 +6,7 @@ export default function RemoveTaskButton({ children, removeTask }) {
 	return (
 		<button
 			onClick={removeTask}
-			className={`opacity-50 hover:text-red-600 hover:opacity-100 transition-[color, opacity] duration-100 ${
+			className={`opacity-50 hover:text-red-600 hover:opacity-100 transition-[color, opacity] duration-300 ${
 				theme === 'light' ? 'text-[#252525]' : 'text-[#f7f7f7]'
 			}`}
 		>
